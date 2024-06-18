@@ -1,0 +1,118 @@
+<mvc:View
+    controllerName="kudos.ui.controller.Employee"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Table
+        id="idKudosList"
+        inset="false"
+    >
+        <infoToolbar>
+            <OverflowToolbar>
+                <Label text="A kudos a day makes a happy day ! :)" />
+            </OverflowToolbar>
+        </infoToolbar>
+        <columns>
+            <Column>
+                <Text text="" />
+            </Column>
+            <Column>
+                <Text text="" />
+            </Column>
+            <Column>
+                <Text text="" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Input
+                        placeholder="Colleague name"
+                        showSuggestion="true"
+                        suggestionRows="{/Employees}"
+                    >
+                        <suggestionColumns>
+                            <Column
+                                hAlign="Begin"
+                                popinDisplay="Inline"
+                                demandPopin="true"
+                            >
+                                <Label text="Name" />
+                            </Column>
+                            <Column
+                                hAlign="Begin"
+                                popinDisplay="Inline"
+                                demandPopin="true"
+                                minScreenWidth="Tablet"
+                            >
+                                <Label text="Email" />
+                            </Column>                            
+                        </suggestionColumns>
+                        <suggestionRows>
+                            <ColumnListItem>
+                                <cells>
+                                    <Label text="{name}" />
+                                    <Label text="{email}" />                                    
+                                </cells>
+                            </ColumnListItem>
+                        </suggestionRows>
+                    </Input>
+                    <Input
+                        type="Text"
+                        editable="true"
+                        placeholder="Some text"
+                    />
+                    <Button
+                        text="Kudos"
+                        press="onPressKudos"
+                        icon="sap-icon://thumb-up"
+                    />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+    <Table
+        id="idKudosTable"
+        inset="false"     
+        noDataText="Give kudos now !"
+    >
+        <!-- <headerToolbar>
+            <OverflowToolbar>
+                <content>
+                    <Title
+                        text="Colleagues"
+                        level="H2"
+                    />
+                    <ToolbarSpacer />
+                </content>
+            </OverflowToolbar>
+        </headerToolbar> -->
+        <!-- <infoToolbar>
+            <OverflowToolbar>
+                <Label text="A kudos a day makes a happy day ! :)" />
+            </OverflowToolbar>
+        </infoToolbar> -->
+        <columns>
+            <Column>
+                <Text text="" />
+            </Column>
+            <Column>
+                <Text text="" />
+            </Column>
+            <Column>
+                <Text text="" />
+            </Column>
+        </columns>
+        <!-- <items>
+            <ColumnListItem>
+                <cells>
+                    <ObjectIdentifier/>
+                    <Text/>
+                    <Button/>
+                </cells>
+            </ColumnListItem>
+        </items> -->
+    </Table>
+</mvc:View>

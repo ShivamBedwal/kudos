@@ -11,9 +11,12 @@ entity employee {
       image       : String;
       designation : String;
       email       : String;
+      contact     : String;
+      location    : String;
 }
 
 entity kudos : cuid, managed {
-  kudos_from : Integer;
-  kudos_to   : Integer;
+  kudos_from : Association to employee;
+  kudos_to   : Association to employee;
+  text       : String;
 }

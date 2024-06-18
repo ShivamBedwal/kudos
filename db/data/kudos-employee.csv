@@ -1,7 +1,7 @@
-ID;name;image;designation;email
-1289;Shivam Bedwal;;Senior Consultant;shivam.bedwal@fioneer.com
-5489;Tharun Chiramel;;Senior Consultant;tharun.chiramel@fioneer.com
-8974;Raju Gottom;;Senior Consultant;raju.gottom@fioneer.com
-2365;Deepa Priya;;Consultant;deepa.priya@fioneer.com
-8963;Iswarya Santaram;;Consultant;iswarya.santaram@fioneer.com
-2584;David Devarakonda;;Senior Consultant;david.devarakonda@fioneer.com
+ID;name;image;designation;email;contact;location
+1289;Shivam Bedwal;;Senior Consultant;shivam.bedwal@fioneer.com;5648751236;Bangalore, India
+5489;Tharun Chiramel;;Senior Consultant;tharun.chiramel@fioneer.com;6598742136;Bangalore, India
+8974;Raju Gottom;;Senior Consultant;raju.gottom@fioneer.com;7845123658;Bangalore, India
+2365;Deepa Priya;;Consultant;deepa.priya@fioneer.com;9658741236;Bangalore, India
+8963;Iswarya Santaram;;Consultant;iswarya.santaram@fioneer.com;5847965236;Bangalore, India
+2584;David Devarakonda;;Senior Consultant;david.devarakonda@fioneer.com;6547893215;Bangalore, India

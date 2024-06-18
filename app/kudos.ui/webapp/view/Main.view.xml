@@ -13,34 +13,27 @@
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle>
 				<expandedHeading>
-					<m:Title text="Denise Smith" wrapping="true"/>
-				</expandedHeading>
+					<m:Title text="{/Employees(1289)/name}" wrapping="true"/>
+				</expandedHeading>				
 
 				<snappedHeading>
 					<m:FlexBox fitContainer="true" alignItems="Center">
 						<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/>
-						<m:Title text="Denise Smith" wrapping="true" />
+						<m:Title text="{/Employees(1289)/name}" wrapping="true" />
 					</m:FlexBox>
 				</snappedHeading>
 
 				<expandedContent>
-					<m:Text text="Senior UI Developer"/>
+					<m:Text text="{/Employees(1289)/designation}"/>
 				</expandedContent>
 
 				<snappedContent>
-					<m:Text text="Senior UI Developer"/>
+					<m:Text text="{/Employees(1289)/designation}"/>
 				</snappedContent>
 
 				<snappedTitleOnMobile>
-					<m:Title text="Senior UI Developer"/>
-				</snappedTitleOnMobile>
-
-				<actions>
-					<m:Button text="Edit" type="Emphasized"/>
-					<m:Button type="Transparent" text="Delete"/>
-					<m:Button type="Transparent" text="Copy"/>
-					<m:OverflowToolbarButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="action"/>
-				</actions>
+					<m:Title text="{/Employees(1289)/designation}"/>
+				</snappedTitleOnMobile>				
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
 
@@ -49,8 +42,8 @@
 				<m:Avatar class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
 
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Link text="+33 6 4512 5158"/>
-					<m:Link text="DeniseSmith@sap.com"/>
+					<m:Link text="{/Employees(1289)/email}"/>
+					<m:Link text="{/Employees(1289)/contact}"/>
 				</layout:VerticalLayout>
 
 				<layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
@@ -59,15 +52,11 @@
 			    </layout:HorizontalLayout>
 
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Label text="Hello! I am Denise and I use UxAP"/>
-					<m:VBox>
-						<m:Label text="Achieved goals"/>
-						<m:ProgressIndicator percentValue="30" displayValue="30%"/>
-					</m:VBox>
+					<m:Label text="Hello! I am {/Employees(1289)/name} and I give Kudos !!!"/>					
 				</layout:VerticalLayout>
 
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Label text="San Jose, USA"/>
+					<m:Label text="{/Employees(1289)/location}"/>
 				</layout:VerticalLayout>
 			</m:FlexBox>
 		</headerContent>
@@ -77,9 +66,7 @@
 			<subSections>
 				<ObjectPageSubSection id="kudosSubsection" titleUppercase="false">
 					<blocks>
-						<m:Button text="Default" press="onPress" 
-                                  ariaDescribedBy="defaultButtonDescription genericButtonDescription"> 
-                        </m:Button>
+						<mvc:XMLView viewName="kudos.ui.view.Employee"/>
 					</blocks>
 				</ObjectPageSubSection>
 			</subSections>
