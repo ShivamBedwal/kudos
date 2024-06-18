@@ -1,0 +1,25 @@
+###
+# @name EmployeeQuery
+
+GET http://localhost:4004/odata/v4/kudos/Employees
+
+###
+# @name KudosCreate
+
+POST http://localhost:4004/odata/v4/kudos/Kudos
+Content-Type: application/json
+
+{
+  "kudos_from" : {
+    "ID" : 1289
+  },
+  "kudos_to" : {
+    "ID" : 5489
+  },
+  "text" : "Well done"
+}
+
+###
+# @name KudosQuery
+
+GET http://localhost:4004/odata/v4/kudos/Kudos
