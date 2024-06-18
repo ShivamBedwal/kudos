@@ -7,7 +7,13 @@ sap.ui.define(
 
     return BaseController.extend("kudos.ui.controller.Employee", {
       onInit: function () {
+        var email;
       },
+
+      onColleagueSelected: function (oEvent) {
+        var oSelectedRow = oEvent.getParameters().selectedRow;
+        email = oSelectedRow.getCells()[1].getText();
+       },
 
       onPressKudos: function (oEvent) {
         var oKudos = this.byId("idKudosList");

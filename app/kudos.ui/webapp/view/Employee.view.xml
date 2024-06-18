@@ -28,9 +28,11 @@
             <ColumnListItem>
                 <cells>
                     <Input
+                        id="idColleagueInput"
                         placeholder="Colleague name"
                         showSuggestion="true"
-                        suggestionRows="{/Employees}"
+                        suggestionRows="{/Employees}"    
+                        suggestionItemSelected = "onColleagueSelected"                    
                     >
                         <suggestionColumns>
                             <Column
