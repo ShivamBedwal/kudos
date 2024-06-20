@@ -32,7 +32,8 @@
                         placeholder="Colleague name"
                         showSuggestion="true"
                         suggestionRows="{/Employees}"    
-                        suggestionItemSelected = "onColleagueSelected"                    
+                        suggestionItemSelected = "onColleagueSelected"     
+                        change="onColleagueChange"               
                     >
                         <suggestionColumns>
                             <Column
@@ -66,9 +67,11 @@
                         placeholder="Some text"
                     />
                     <Button
+                        id="idKudosButton"
                         text="Kudos"
                         press="onPressKudos"
                         icon="sap-icon://thumb-up"
+                        enabled="false"
                     />
                 </cells>
             </ColumnListItem>
