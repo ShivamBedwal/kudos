@@ -7,12 +7,18 @@
     <Table
         id="idKudosList"
         inset="false"
-    >
-        <infoToolbar>
+    >        
+        <headerToolbar>
             <OverflowToolbar>
-                <Label text="A kudos a day makes a happy day ! :)" />
+                <content>
+                    <Title
+                        text="A kudos a day makes a happy day ! :)"
+                        level="H2"
+                    />
+                </content>
             </OverflowToolbar>
-        </infoToolbar>
+        </headerToolbar>
+
         <columns>
             <Column>
                 <Text text="" />
@@ -31,9 +37,9 @@
                         id="idColleagueInput"
                         placeholder="Colleague name"
                         showSuggestion="true"
-                        suggestionRows="{/Employees}"    
-                        suggestionItemSelected = "onColleagueSelected"     
-                        change="onColleagueChange"               
+                        suggestionRows="{/Employees}"
+                        suggestionItemSelected="onColleagueSelected"
+                        change="onColleagueChange"
                     >
                         <suggestionColumns>
                             <Column
@@ -50,18 +56,19 @@
                                 minScreenWidth="Tablet"
                             >
                                 <Label text="Email" />
-                            </Column>                            
+                            </Column>
                         </suggestionColumns>
                         <suggestionRows>
                             <ColumnListItem>
                                 <cells>
                                     <Label text="{name}" />
-                                    <Label text="{email}" />                                    
+                                    <Label text="{email}" />
                                 </cells>
                             </ColumnListItem>
                         </suggestionRows>
                     </Input>
                     <Input
+                        id="idInpText"
                         type="Text"
                         editable="true"
                         placeholder="Some text"
@@ -78,27 +85,33 @@
         </items>
     </Table>
 
+    <ToolbarSeparator />
+
     <Table
         id="idKudosTable"
-        inset="false"     
+        inset="false"
         noDataText="Give kudos now !"
+        items="{
+			path: '/Kudos',            
+			sorter: {
+				path: 'createdAt',
+                descending: true
+			}
+		}"
+        growing="true"
+        growingThreshold="10"
     >
-        <!-- <headerToolbar>
+        <headerToolbar>
             <OverflowToolbar>
                 <content>
                     <Title
-                        text="Colleagues"
-                        level="H2"
+                        text="Kudoed by you !"
+                        level="Auto"
                     />
-                    <ToolbarSpacer />
                 </content>
             </OverflowToolbar>
-        </headerToolbar> -->
-        <!-- <infoToolbar>
-            <OverflowToolbar>
-                <Label text="A kudos a day makes a happy day ! :)" />
-            </OverflowToolbar>
-        </infoToolbar> -->
+        </headerToolbar>
+
         <columns>
             <Column>
                 <Text text="" />
@@ -106,18 +119,14 @@
             <Column>
                 <Text text="" />
             </Column>
-            <Column>
-                <Text text="" />
-            </Column>
         </columns>
-        <!-- <items>
+        <items>
             <ColumnListItem>
                 <cells>
-                    <ObjectIdentifier/>
-                    <Text/>
-                    <Button/>
+                    <ObjectIdentifier title="{kudos_to/name}"/>
+                    <Text text="{text}" />
                 </cells>
             </ColumnListItem>
-        </items> -->
+        </items>
     </Table>
 </mvc:View>

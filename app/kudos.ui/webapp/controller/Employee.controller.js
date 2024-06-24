@@ -38,24 +38,46 @@ sap.ui.define(
           "text": oKudos.getItems()[0].getCells()[1].getValue()
         }
 
+        this.createKudos(oEmpData);
+      },
+
+      createKudos: function (oEmpData) {
         var oModel = this.getOwnerComponent().getModel();
         var emailFilter = new sap.ui.model.Filter({
           path: "email",
           operator: sap.ui.model.FilterOperator.EQ,
-          value1: email
+          value1: oEmpData.email
         });
 
-        oModel.read("/Employees", {
-          filters: [emailFilter],
-          success: function (oData) {
-            this.kudosToEmp(oData);
-          },
-          error: function (oError) { }
-        });
+        var oEmployeeList = oModel.bindList("/Employees").filter(emailFilter);
+        oEmployeeList.requestContexts().then(function (aContexts) {
+          aContexts.forEach(function (oContext) {
+            var kudosToID = oContext.getProperty("ID");
+            var oKudosList = oModel.bindList("/Kudos");
+            oKudosList.create(
+              {
+                "kudos_from": {
+                  "ID": 1289
+                },
+                "kudos_to": {
+                  "ID": kudosToID
+                },
+                "text": oEmpData.text
+              }
+            );
+
+            this.byId("idKudosTable").getBinding("items").refresh();
+            this.clearKudos();
+          }.bind(this));
+        }.bind(this));
       },
 
-      kudosToEmp: function (oData) {
-        var aData = oData;
+      clearKudos: function () {
+        var oEmpName = this.byId("idColleagueInput");
+        var oInpText = this.byId("idInpText");
+        oEmpName.setValue("");
+        oInpText.setValue("");
+        this.kudosButtonChange();
       }
     });
   }
