@@ -1,8 +1,9 @@
 sap.ui.define(
   [
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/BusyIndicator"
   ],
-  function (BaseController) {
+  function (BaseController, BusyIndicator) {
     "use strict";
 
     var email;
@@ -32,6 +33,7 @@ sap.ui.define(
       },
 
       onPressKudos: function (oEvent) {
+        this.kudosButtonChange();
         var oKudos = this.byId("idKudosList");
         var oEmpData = {
           "email": email,
@@ -66,10 +68,26 @@ sap.ui.define(
               }
             );
 
-            this.byId("idKudosTable").getBinding("items").refresh();
-            this.clearKudos();
+            this.refreshUITable(2000, 0);
+
           }.bind(this));
         }.bind(this));
+      },
+
+      refreshUITable: function (iDuration, iDelay) {
+        BusyIndicator.show(iDelay);
+        if (iDuration && iDuration > 0) {
+          if (this._sTimeoutId) {
+            clearTimeout(this._sTimeoutId);
+            this._sTimeoutId = null;
+          }
+
+          this._sTimeoutId = setTimeout(function () {
+            this.byId("idKudosTable").getBinding("items").refresh();
+            this.clearKudos();
+            BusyIndicator.hide();
+          }.bind(this), iDuration);
+        }
       },
 
       clearKudos: function () {
