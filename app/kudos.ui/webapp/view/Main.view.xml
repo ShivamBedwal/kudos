@@ -76,9 +76,7 @@
 				<subSections>
 					<ObjectPageSubSection id="topKudoedSubsection" titleUppercase="false">
 						<blocks>
-							<m:Button text="Default" press="onPress" 
-                                  ariaDescribedBy="defaultButtonDescription genericButtonDescription"> 
-                            </m:Button>
+							<mvc:XMLView viewName="kudos.ui.view.TopKudoed"/>
 						</blocks>
 					</ObjectPageSubSection>					
 				</subSections>

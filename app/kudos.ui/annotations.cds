@@ -1,1 +1,1 @@
-using KudosService as service from '../../srv/cat-service';
+using KudosService as service from '../../srv/kudos-service';
