@@ -8,9 +8,7 @@ sap.ui.define(
         var email;
 
         return BaseController.extend("kudos.ui.controller.TopKudoed", {
-            onInit: function () {
-
-            }
+            onInit: function () { }
         });
     }
 )

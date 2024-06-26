@@ -43,10 +43,9 @@
                 <cells>
                     <Text text="{name}"/>
                     <HBox>
-                        <core:Icon src="sap-icon://thumb-up"/>
-                        <Text text="{total_kudos}"/>
+                        <core:Icon src="sap-icon://thumb-up" class="sapUiSmallMarginEnd"/>
+                        <Text text="{total_kudos}" />
                     </HBox>                    
-                    <!-- <Button text="{total_kudos}" icon="sap-icon://thumb-up" enabled="false" type="Transparent"/> -->
                 </cells>
             </ColumnListItem>
         </items>

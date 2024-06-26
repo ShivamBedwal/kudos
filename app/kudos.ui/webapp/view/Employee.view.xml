@@ -7,6 +7,7 @@
     <Table
         id="idKudosList"
         inset="false"
+        class="sapUiSmallMarginBottom"
     >        
         <headerToolbar>
             <OverflowToolbar>
@@ -20,15 +21,9 @@
         </headerToolbar>
 
         <columns>
-            <Column>
-                <Text text="" />
-            </Column>
-            <Column>
-                <Text text="" />
-            </Column>
-            <Column>
-                <Text text="" />
-            </Column>
+            <Column/>
+            <Column/>
+            <Column/>
         </columns>
         <items>
             <ColumnListItem>
@@ -85,8 +80,6 @@
         </items>
     </Table>
 
-    <ToolbarSeparator />
-
     <Table
         id="idKudosTable"
         inset="false"
@@ -100,6 +93,7 @@
 		}"
         growing="true"
         growingThreshold="10"
+        class="sapUiSmallMarginTop"
     >
         <headerToolbar>
             <OverflowToolbar>
@@ -113,18 +107,14 @@
         </headerToolbar>
 
         <columns>
-            <Column>
-                <Text text="" />
-            </Column>
-            <Column>
-                <Text text="" />
-            </Column>
+            <Column/>
+            <Column/>
         </columns>
         <items>
             <ColumnListItem>
                 <cells>
                     <Text text="{kudos_to/name}"/>
-                    <Text text="{text}" />
+                    <Text text="{text}" textAlign="Begin"/>
                 </cells>
             </ColumnListItem>
         </items>
