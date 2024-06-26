@@ -68,7 +68,7 @@ sap.ui.define(
               }
             );
 
-            this.refreshUITable(2000, 0);
+            this.refreshUITable(1000, 0);
 
           }.bind(this));
         }.bind(this));

@@ -2,7 +2,21 @@ using kudos from '../db/data-model';
 
 service KudosService {
     @readonly
-    entity Employees as projection on kudos.employee;
+    entity Employees as
+        select from kudos.employee {
+            *,
+            count(
+                emp_kudos.kudos_to.ID
+            ) as total_kudos : Integer
+        }
+        group by
+            ID,
+            name,
+            image,
+            designation,
+            email,
+            contact,
+            location;
 
     entity Kudos     as projection on kudos.kudos;
 }

@@ -10,7 +10,11 @@
         inset="false"
         noDataText="None has been kudoed. . Haw !"
         items="{
-			path: '/Kudos'		
+			path: '/Employees',
+            sorter: {
+				path: 'total_kudos',
+                descending: true
+			}
 		}"
         growing="true"
         growingThreshold="10"
@@ -37,8 +41,12 @@
         <items>
             <ColumnListItem>
                 <cells>
-                    <Text text="{kudos_to/name}"/>
-                    <Button text="Count" />
+                    <Text text="{name}"/>
+                    <HBox>
+                        <core:Icon src="sap-icon://thumb-up"/>
+                        <Text text="{total_kudos}"/>
+                    </HBox>                    
+                    <!-- <Button text="{total_kudos}" icon="sap-icon://thumb-up" enabled="false" type="Transparent"/> -->
                 </cells>
             </ColumnListItem>
         </items>

@@ -13,6 +13,8 @@ entity employee {
       email       : String;
       contact     : String;
       location    : String;
+      emp_kudos   : Association to many kudos
+                      on ID = emp_kudos.kudos_to.ID;
 }
 
 entity kudos : cuid, managed {
