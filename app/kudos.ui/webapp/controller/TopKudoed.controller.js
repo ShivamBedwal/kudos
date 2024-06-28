@@ -5,10 +5,13 @@ sap.ui.define(
     function (BaseController) {
         "use strict";
 
-        var email;
-
         return BaseController.extend("kudos.ui.controller.TopKudoed", {
-            onInit: function () { }
+
+            onInit: function () { },
+
+            onBeforeRendering: function () {
+                this.byId("idTopKudoedTable").getBinding("items").refresh();
+            }
         });
     }
 )

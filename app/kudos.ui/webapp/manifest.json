@@ -109,7 +109,7 @@
         "clearControlAggregation": false,
         "path": "kudos.ui.view"
       },
-      "routes": [      
+      "routes": [
         {
           "pattern": ":?query:",
           "name": "TargetMain",

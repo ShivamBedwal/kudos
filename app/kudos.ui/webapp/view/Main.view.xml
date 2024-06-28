@@ -74,9 +74,14 @@
 
 			<ObjectPageSection titleUppercase="false" id="topKudoed" title="Top Kudoed Colleagues">
 				<subSections>
-					<ObjectPageSubSection id="topKudoedSubsection" titleUppercase="false">
+					<ObjectPageSubSection title="Global" id="topKudoedSubsection" titleUppercase="false">
 						<blocks>
 							<mvc:XMLView viewName="kudos.ui.view.TopKudoed"/>
+						</blocks>
+					</ObjectPageSubSection>	
+					<ObjectPageSubSection title="My Team" id="myTeamSubSection" titleUppercase="false">
+						<blocks>
+							<mvc:XMLView viewName="kudos.ui.view.MyTeam"/>
 						</blocks>
 					</ObjectPageSubSection>					
 				</subSections>
