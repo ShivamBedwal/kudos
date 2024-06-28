@@ -8,22 +8,19 @@
         id="idKudosList"
         inset="false"
         class="sapUiSmallMarginBottom"
-    >        
+    >
         <headerToolbar>
             <OverflowToolbar>
                 <content>
-                    <Title
-                        text="A kudos a day makes a happy day ! :)"
-                        level="H2"
-                    />
+                    <Text text="A kudos a day makes a happy day ! :)" />
                 </content>
             </OverflowToolbar>
         </headerToolbar>
 
         <columns>
-            <Column/>
-            <Column/>
-            <Column/>
+            <Column />
+            <Column />
+            <Column />
         </columns>
         <items>
             <ColumnListItem>
@@ -98,23 +95,30 @@
         <headerToolbar>
             <OverflowToolbar>
                 <content>
-                    <Title
-                        text="Kudoed by you !"
-                        level="Auto"
-                    />
+                    <Text text="Kudoed by you !" />
                 </content>
+                <ToolbarSpacer />
+                <SearchField
+                    placeholder="Search"
+                    value="{ui>/globalFilter}"
+                    search="filterGlobally"
+                    width="15rem"
+                />
             </OverflowToolbar>
         </headerToolbar>
 
         <columns>
-            <Column/>
-            <Column/>
+            <Column />
+            <Column />
         </columns>
         <items>
             <ColumnListItem>
                 <cells>
-                    <Text text="{kudos_to/name}"/>
-                    <Text text="{text}" textAlign="Begin"/>
+                    <Text text="{kudos_to/name}" />
+                    <Text
+                        text="{text}"
+                        textAlign="Begin"
+                    />
                 </cells>
             </ColumnListItem>
         </items>

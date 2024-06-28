@@ -5,11 +5,71 @@
     xmlns="sap.m"
 >
     <Table
+        id="idAddTeamMember"
+        inset="false"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <Text text="Add team member" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column />
+            <Column />
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Input
+                        id="idColleagueInput"
+                        placeholder="Colleague name"
+                        showSuggestion="true"
+                        suggestionRows="{/Employees}"
+                        suggestionItemSelected="onColleagueSelected"
+                        change="onColleagueChange"
+                    >
+                        <suggestionColumns>
+                            <Column
+                                hAlign="Begin"
+                                popinDisplay="Inline"
+                                demandPopin="true"
+                            >
+                                <Label text="Name" />
+                            </Column>
+                            <Column
+                                hAlign="Begin"
+                                popinDisplay="Inline"
+                                demandPopin="true"
+                                minScreenWidth="Tablet"
+                            >
+                                <Label text="Email" />
+                            </Column>
+                        </suggestionColumns>
+                        <suggestionRows>
+                            <ColumnListItem>
+                                <cells>
+                                    <Label text="{name}" />
+                                    <Label text="{email}" />
+                                </cells>
+                            </ColumnListItem>
+                        </suggestionRows>
+                    </Input>
+                    <Button
+                        id="idAddMemberButton"
+                        press="onPressKudos"
+                        icon="sap-icon://add"
+                        type="Emphasized"                        
+                    />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+    <Table
         id="idMyTeamTable"
         inset="false"
-        noDataText="Add your team members"
+        noDataText="Add your team members to view their kudos count"
         items="{
-			path: '/Employees',
+			path: '',
             sorter: {
 				path: 'total_kudos',
                 descending: true
@@ -18,13 +78,21 @@
         growing="true"
         growingThreshold="10"
     >
+        <headerToolbar>
+            <OverflowToolbar style="Clear">
+                <Text text="Top kudoed colleagues in my team" />
+                <ToolbarSpacer />
+                <SearchField
+                    placeholder="Search"
+                    value="{ui>/globalFilter}"
+                    search="filterGlobally"
+                    width="15rem"
+                />
+            </OverflowToolbar>
+        </headerToolbar>
         <columns>
-            <Column>
-                <Text text="Colleague Name" />
-            </Column>
-            <Column>
-                <Text text="Kudos count" />
-            </Column>
+            <Column />
+            <Column />
         </columns>
         <items>
             <ColumnListItem>
