@@ -19,6 +19,5 @@ service KudosService {
             location;
 
     entity Kudos     as projection on kudos.kudos;
-
-    entity Team as projection on kudos.team_members;
+    entity Team      as projection on kudos.team_members;
 }

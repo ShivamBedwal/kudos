@@ -14,7 +14,7 @@ entity employee {
       contact      : String;
       location     : String;
       emp_kudos    : Association to many kudos
-                       on emp_kudos.kudos_to = $self;
+                       on emp_kudos.kudos_from = $self;
       team_members : Composition of many team_members
                        on team_members.team_emp = $self;
 }

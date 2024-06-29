@@ -82,7 +82,7 @@
         inset="false"
         noDataText="Give kudos now !"
         items="{
-			path: '/Kudos',            
+			path: '/Employees(1289)/emp_kudos',            
 			sorter: {
 				path: 'createdAt',
                 descending: true

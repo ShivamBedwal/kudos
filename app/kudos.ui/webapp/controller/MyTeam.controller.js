@@ -1,13 +1,18 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller"
+        "sap/ui/core/mvc/Controller",
+        "sap/ui/core/BusyIndicator"
     ],
-    function (BaseController) {
+    function (BaseController, BusyIndicator) {
         "use strict";
         var email;
         return BaseController.extend("kudos.ui.controller.MyTeam", {
 
             onInit: function () { },
+
+            onBeforeRendering: function () {
+                this.byId("idMyTeamTable").getBinding("items").refresh();
+            },
 
             onColleagueChange: function (oEvent) {
                 var oValue = oEvent.getParameter('value');
@@ -48,7 +53,7 @@ sap.ui.define(
                 oEmployeeList.requestContexts().then(function (aContexts) {
                     aContexts.forEach(function (oContext) {
                         var memberID = oContext.getProperty("ID");
-                        var oMemberList = oModel.bindList("/team_members");
+                        var oMemberList = oModel.bindList("/Team");
                         oMemberList.create(
                             {
                                 "team_emp": {
@@ -60,7 +65,7 @@ sap.ui.define(
                             }
                         );
 
-                        // this.refreshUITable(1000, 0);
+                        this.refreshUITable(1000, 0);
 
                     }.bind(this));
                 }.bind(this));
@@ -75,18 +80,16 @@ sap.ui.define(
                     }
 
                     this._sTimeoutId = setTimeout(function () {
-                        this.byId("idKudosTable").getBinding("items").refresh();
-                        this.clearKudos();
+                        this.byId("idMyTeamTable").getBinding("items").refresh();
+                        this.clearAddMember();
                         BusyIndicator.hide();
                     }.bind(this), iDuration);
                 }
             },
 
-            clearKudos: function () {
+            clearAddMember: function () {
                 var oEmpName = this.byId("idColleagueInput");
-                var oInpText = this.byId("idInpText");
                 oEmpName.setValue("");
-                oInpText.setValue("");
                 this.addMemberButtonChange();
             }
         });

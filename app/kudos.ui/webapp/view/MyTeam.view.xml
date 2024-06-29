@@ -59,6 +59,7 @@
                         press="onAddTeamMember"
                         icon="sap-icon://add"
                         type="Emphasized"
+                        enabled="false"
                     />
                 </cells>
             </ColumnListItem>
@@ -69,9 +70,9 @@
         inset="false"
         noDataText="Add your team members to view their kudos count"
         items="{
-			path: '',
+			path: '/Employees(1289)/team_members',
             sorter: {
-				path: 'total_kudos',
+				path: 'team_member/total_kudos',
                 descending: true
 			}
 		}"
@@ -97,13 +98,13 @@
         <items>
             <ColumnListItem>
                 <cells>
-                    <Text text="{name}" />
+                    <Text text="{team_member/name}" />
                     <HBox>
                         <core:Icon
                             src="sap-icon://thumb-up"
                             class="sapUiSmallMarginEnd"
                         />
-                        <Text text="{total_kudos}" />
+                        <Text text="{team_member/total_kudos}" />
                     </HBox>
                 </cells>
             </ColumnListItem>
