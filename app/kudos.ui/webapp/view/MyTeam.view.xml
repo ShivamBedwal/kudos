@@ -56,9 +56,9 @@
                     </Input>
                     <Button
                         id="idAddMemberButton"
-                        press="onPressKudos"
+                        press="onAddTeamMember"
                         icon="sap-icon://add"
-                        type="Emphasized"                        
+                        type="Emphasized"
                     />
                 </cells>
             </ColumnListItem>

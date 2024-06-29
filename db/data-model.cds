@@ -25,7 +25,7 @@ entity kudos : cuid, managed {
   text       : String;
 }
 
-entity team_members {
+entity team_members : managed {
   key team_emp    : Association to employee;
   key team_member : Association to employee;
 }
