@@ -71,6 +71,45 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+
+- name: kudos-destinations
+  type: com.sap.application.content
+  requires:
+    - name: kudos-auth
+      parameters:
+        service-key:
+          name: kudos-auth-key
+    - name: kudos-repo-host
+      parameters:
+        service-key:
+          name: kudos-repo-host-key
+    - name: srv-api
+    - name: kudos-destination-service
+      parameters:
+        content-target: true
+  parameters:
+    content:
+      instance:
+        destinations:
+          - Authentication: OAuth2UserTokenExchange
+            Name: kudos-app-srv
+            TokenServiceInstanceName: kudos-auth
+            TokenServiceKeyName: kudos-auth-key
+            URL: '~{srv-api/srv-url}'
+            sap.cloud.service: sb.kudos
+          - Name: kudos-repo-host
+            ServiceInstanceName: kudos-repo-host
+            ServiceKeyName: kudos-repo-host-key
+            sap.cloud.service: sb.kudos
+          - Authentication: OAuth2UserTokenExchange
+            Name: kudos-auth
+            ServiceInstanceName: kudos-auth
+            ServiceKeyName: kudos-auth-key
+            sap.cloud.service: sb.kudos
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+
 resources:
 - name: kudos-auth
   type: org.cloudfoundry.managed-service
@@ -90,13 +129,12 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: kudos-html5-srv
     service-plan: app-host
 - name: kudos-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
+      HTML5Runtime_enabled: true
       init_data:
         instance:
           destinations:
